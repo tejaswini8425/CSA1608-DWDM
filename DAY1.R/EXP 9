@@ -1,0 +1,19 @@
+marks <- c(55,60,71,63,55,65,50,55,58,
+           59,61,63,65,67,71,72,75)
+
+num_bins <- 3
+
+eq_breaks <- quantile(marks, probs = seq(0, 1, length.out = 4))
+
+hist(marks, breaks = eq_breaks, include.lowest = TRUE,
+     col = "lightblue",
+     main = "Equal-Frequency Partitioning",
+     xlab = "Marks")
+
+eq_width_breaks <- seq(min(marks), max(marks),
+                       length.out = num_bins + 1)
+
+hist(marks, breaks = eq_width_breaks, include.lowest = TRUE,
+     col = "lightgreen",
+     main = "Equal-Width Partitioning",
+     xlab = "Marks")
