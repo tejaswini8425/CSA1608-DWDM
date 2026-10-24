@@ -1,0 +1,13 @@
+# Input data
+speed <- c(78.3, 81.8, 82, 74.2, 83.4,
+           84.5, 82.9, 77.5, 80.9, 70.6)
+
+# Calculate Interquartile Range
+IQR_value <- IQR(speed)
+
+# Calculate Standard Deviation
+SD_value <- sd(speed)
+
+# Display results
+print(IQR_value)
+print(SD_value
