@@ -1,0 +1,10 @@
+points <- c(2, 10, 12, 15, 18, 20, 22, 24, 26, 50)
+
+
+boxplot(points,
+        main = "Box Plot of Points Scored by Tennis Players",
+        ylab = "Points Scored",
+        col = "pink")
+
+
+boxplot.stats(points)$out
