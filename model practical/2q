@@ -1,0 +1,49 @@
+# Daily visitor data
+visitors <- c(42, 38, 45, 50, 47, 40, 44,
+              46, 48, 52, 55, 53, 49, 51,
+              54, 56, 58)
+
+# Sort the data
+sorted_data <- sort(visitors)
+
+# Equal Frequency Partitioning
+bin1 <- sorted_data[1:6]
+bin2 <- sorted_data[7:12]
+bin3 <- sorted_data[13:17]
+
+cat("Equal Frequency Binning:\n")
+cat("Bin 1:", bin1, "\n")
+cat("Bin 2:", bin2, "\n")
+cat("Bin 3:", bin3, "\n")
+
+# Equal Width Partitioning
+width <- (max(visitors) - min(visitors)) / 3
+
+breaks <- c(
+  min(visitors),
+  min(visitors) + width,
+  min(visitors) + 2 * width,
+  max(visitors) + 0.001
+)
+
+equal_width <- cut(visitors, breaks = breaks,
+                   include.lowest = TRUE)
+
+cat("\nEqual Width Binning:\n")
+print(split(visitors, equal_width))
+
+# Clustering Based Partitioning
+set.seed(123)
+
+km <- kmeans(visitors, centers = 3,
+             nstart = 25)
+
+cat("\nClustering Based Partitioning:\n")
+print(split(visitors, km$cluster))
+
+# Histogram
+hist(visitors,
+     main = "Daily Library Visitors",
+     xlab = "Number of Visitors",
+     col = "lightblue",
+     border = "black")
