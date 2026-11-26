@@ -1,0 +1,7 @@
+# Decision Tree using J48
+java -cp weka.jar weka.classifiers.trees.J48 \
+-t diabetes.arff -x 10 -i
+
+# Support Vector Machine using SMO
+java -cp weka.jar weka.classifiers.functions.SMO \
+-t diabetes.arff -x 10 -i
