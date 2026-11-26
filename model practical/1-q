@@ -1,0 +1,23 @@
+
+# CPU usage data
+cpu <- c(35, 50, 45, 60, 55)
+
+# Min-Max Normalization
+min_max <- (cpu - min(cpu)) /
+           (max(cpu) - min(cpu))
+
+# Z-score using Mean Absolute Deviation
+mean_value <- mean(cpu)
+mad_value <- mean(abs(cpu - mean_value))
+
+z_score <- (cpu - mean_value) / mad_value
+
+# Decimal Scaling
+j <- ceiling(log10(max(abs(cpu)) + 1))
+decimal <- cpu / (10^j)
+
+# Display results
+cat("Original Data:", cpu, "\n")
+cat("Min-Max Normalization:", round(min_max, 4), "\n")
+cat("Z-score Normalization:", round(z_score, 4), "\n")
+cat("Decimal Scaling:", decimal, "\n")
